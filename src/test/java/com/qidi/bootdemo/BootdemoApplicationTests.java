@@ -2,6 +2,7 @@ package com.qidi.bootdemo;
 
 import com.qidi.bootdemo.controller.HelloWorldController;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -12,7 +13,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-
+@Ignore
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class BootdemoApplicationTests {
