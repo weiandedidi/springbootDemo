@@ -27,6 +27,11 @@ server:
   port: 8080
 spring:
   profiles: test
+logging:
+  file: ./logs/demo.log
+  level:
+    com.qidi.bootdemo: debug
+
 
 ---
 
@@ -36,6 +41,11 @@ server:
   port: 8081
 spring:
   profiles: dev
+#  日志配置
+logging:
+  file: ./logs/demo.log
+  level:
+    com.qidi.bootdemo: trace
 
 
 ---
@@ -44,6 +54,10 @@ server:
   port: 8082
 spring:
   profiles: prod
+logging:
+  file: ./logs/demo.log
+  level:
+    com.qidi.bootdemo: info
 
 
 
