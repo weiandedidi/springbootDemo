@@ -1,14 +1,13 @@
-server:
-  port:  8081
-
 spring:
   mvc:
     view:
       prefix: /WEB-INF/view/
       suffix: .jsp
+  profiles:
+    active: @bootdemo.enviroment@
 
 person:
-  name: maqidi
+  name: 马启迪
   age: 18
   accountMap: {1: 100,2: 200}
   departmentNos :
@@ -17,5 +16,30 @@ person:
   department :
     name: market
     departNo: 101
+
+#   test
+---
+server:
+  port: 8080
+spring:
+  profiles: test
+
+---
+
+
+#   dev
+server:
+  port: 8081
+spring:
+  profiles: dev
+
+
+---
+# prod
+server:
+  port: 8082
+spring:
+  profiles: prod
+
 
 

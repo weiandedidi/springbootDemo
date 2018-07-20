@@ -14,7 +14,7 @@ import org.springframework.test.context.junit4.SpringRunner;
  * Date: 2018/7/20
  * Time: 上午10:56
  */
-@Ignore
+//@Ignore
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class YamlConfigTest {
@@ -25,7 +25,7 @@ public class YamlConfigTest {
     public void testConfiguer() {
         //成功注入
         System.out.println(person.getName());
-        System.out.println(person.getDepartmentNos());
-        System.out.println(person.getAccountMap());
+//        System.out.println(person.getDepartmentNos());
+//        System.out.println(person.getAccountMap());
     }
 }
