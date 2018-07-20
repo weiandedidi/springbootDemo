@@ -1,7 +1,21 @@
 server:
-  port:8081
+  port:  8081
+
 spring:
   mvc:
     view:
       prefix: /WEB-INF/view/
       suffix: .jsp
+
+person:
+  name: maqidi
+  age: 18
+  accountMap: {1: 100,2: 200}
+  departmentNos :
+    - 101
+    - 102
+  department :
+    name: market
+    departNo: 101
+
+
