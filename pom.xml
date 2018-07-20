@@ -6,7 +6,7 @@
     <groupId>com.qidi</groupId>
     <artifactId>bootdemo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
 
     <name>bootdemo</name>
     <description>Demo project for Spring Boot</description>
@@ -101,12 +101,6 @@
     </build>
     <!-- 针对不同运行环境的配置 -->
     <profiles>
-        <profile>
-            <id>test</id>
-            <properties>
-                <bootdemo.enviroment>test</bootdemo.enviroment>
-            </properties>
-        </profile>
         <profile>
             <id>test</id>
             <properties>
