@@ -5,6 +5,10 @@ spring:
       suffix: .jsp
   profiles:
     active: @bootdemo.enviroment@
+  http:
+    encoding:
+      charset: UTF-8
+
 
 person:
   name: 马启迪
