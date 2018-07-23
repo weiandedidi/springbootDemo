@@ -27,6 +27,11 @@ server:
   port: 8080
 spring:
   profiles: test
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/zoo?useUnicode=true&amp;autoReconnect=true&amp;characterEncoding=UTF8&amp;allowMultiQueries=true
+    dbcp2:
+      username: qidi
+      password: maqidi4915338
 logging:
   file: ./logs/demo.log
   level:
