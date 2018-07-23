@@ -2,6 +2,7 @@ package com.qidi.bootdemo.controller;
 
 import com.qidi.bootdemo.exception.MyException;
 import org.springframework.http.HttpRequest;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -35,14 +36,17 @@ public class MyExceptionHandler {
      * @return
      */
     @ExceptionHandler(MyException.class)
-    public String handleException(Exception e, HttpServletRequest httpServletRequest) {
+    public String handleException(Exception e, HttpServletRequest httpServletRequest, Model model) {
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("code", 404);
         map.put("msg", e.getMessage());
-        //定制自适应的错误，通过boot的error自适应解析器
-        httpServletRequest.setAttribute("javax.servlet.error.status_code",404);
-//        return map;
-        return "forward:/error";
+        model.addAttribute("errorMap",map);
+        //1. 转发到自己的error页面
+        return "/error/404";
+        //2.定制自适应的错误，通过boot的error自适应解析器
+//        httpServletRequest.setAttribute("javax.servlet.error.status_code",404);
+//        return "forward:/error";
+
     }
 
 
