@@ -1,10 +1,11 @@
 package com.qidi.bootdemo.controller;
 
+import com.qidi.bootdemo.model.Person;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpSession;
 
 /**
  * Created with IntelliJ IDEA.
@@ -15,24 +16,42 @@ import org.springframework.web.bind.annotation.RequestParam;
  */
 @Controller
 public class LoginController {
-    @PostMapping("/login")
-    public String login(@RequestParam("username")String username, @RequestParam("password")String password){
+    @PostMapping("/dologin")
+    public String login(@RequestParam("username")String username, @RequestParam("password")String password, HttpSession session){
         if("miaozhihao".equals(username)&&"123456".equals(password)){
+            session.setAttribute("user",username);
             return "success";
         }
 
-        return "fail";
+//        return "fail";
+        return "rediret:/login";
     }
 
     @GetMapping("/login")
     public String loginIndex(Model model){
         model.addAttribute("username", "miaozhihao");
         return "login";
+        //使用mvc的重定向
+//        return "redirect:/admin";
+
     }
 
     @GetMapping("/admin")
     public String admin(Model model){
         model.addAttribute("admin", "miaozhihaoer");
         return "admin/index";
+    }
+
+    @PutMapping("/person")
+    @ResponseBody
+    public String updatePerson(Person person){
+        //put是put方式
+        return "成功";
+    }
+
+    @GetMapping("/person")
+    public String infoPerson(Person person){
+        //put是put方式
+        return "info";
     }
 }
