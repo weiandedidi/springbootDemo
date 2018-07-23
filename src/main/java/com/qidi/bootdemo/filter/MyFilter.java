@@ -13,7 +13,6 @@ import java.io.IOException;
  * Date: 2018/7/23
  * Time: 下午6:50
  */
-@Component
 @WebFilter(filterName = "myFilter", urlPatterns = "/*")
 public class MyFilter implements Filter {
     /**

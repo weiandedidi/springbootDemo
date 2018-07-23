@@ -1,7 +1,7 @@
 package com.qidi.bootdemo;
 
 import com.qidi.bootdemo.model.Person;
-import org.junit.Ignore;
+import com.qidi.bootdemo.utils.SpringUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +20,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class YamlConfigTest {
     @Autowired
     Person person;
+    @Autowired
+    SpringUtils springUtils;
 
     @Test
     public void testConfiguer() {
@@ -27,5 +29,11 @@ public class YamlConfigTest {
         System.out.println(person.getName());
 //        System.out.println(person.getDepartmentNos());
 //        System.out.println(person.getAccountMap());
+    }
+
+    @Test
+    public void testSpring() {
+        Person person = (Person) springUtils.getBean("person");
+        System.out.println(person.getName());
     }
 }
