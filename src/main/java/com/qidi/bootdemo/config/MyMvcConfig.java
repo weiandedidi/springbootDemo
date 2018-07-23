@@ -25,6 +25,7 @@ public class MyMvcConfig implements WebMvcConfigurer {
      */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
+        //todo 使用拦截器
 //        registry.addInterceptor(loginHandlerInterceptor).addPathPatterns("/**").excludePathPatterns("/index.html","/","/login","/dologin");
          //排除放行请求
     }

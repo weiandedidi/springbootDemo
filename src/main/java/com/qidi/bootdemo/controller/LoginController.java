@@ -1,5 +1,6 @@
 package com.qidi.bootdemo.controller;
 
+import com.qidi.bootdemo.exception.MyException;
 import com.qidi.bootdemo.model.Person;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +22,9 @@ public class LoginController {
         if("miaozhihao".equals(username)&&"123456".equals(password)){
             session.setAttribute("user",username);
             return "success";
+        }
+        if ("qidi".equals(username)){
+            throw new MyException();
         }
 
 //        return "fail";
