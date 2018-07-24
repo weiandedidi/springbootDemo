@@ -7,7 +7,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.env.ConfigurableEnvironment;
 
 /**
- * Created with IntelliJ IDEA.
+ * 需要resources中META-INF 配置spring.factories
  * User: qidi
  * Date: 2018/7/24
  * Time: 下午4:49

@@ -3,6 +3,7 @@ package com.qidi.bootdemo.service.user;
 import com.qidi.bootdemo.dao.user.UserDao;
 import com.qidi.bootdemo.model.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 /**
@@ -19,18 +20,22 @@ public class UserService {
 
     /**
      * 通过获取用户
+     *
      * @return
      */
+    @Cacheable(value = "users", key = "'user_'+#id")
     public User getUserById(Integer id) {
+
         return userDao.getUserById(id);
     }
 
-    public User addUser(User user){
+
+    public User addUser(User user) {
         userDao.insert(user);
         return user;
     }
 
-    public User updateUser(User user){
+    public User updateUser(User user) {
         userDao.update(user);
         return user;
     }
