@@ -49,6 +49,12 @@ public class RedisConfiguration extends CachingConfigurerSupport {
     }
 
     //缓存管理器
+
+    /**
+     * 添加了build方法，可以用redisConnectionFactory创建
+     * @param redisConnectionFactory
+     * @return
+     */
     @Bean
     public CacheManager cacheManager(RedisConnectionFactory redisConnectionFactory) {
         RedisCacheManager.RedisCacheManagerBuilder builder = RedisCacheManager
