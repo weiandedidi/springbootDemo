@@ -14,7 +14,9 @@ spring:
      password: maqidi4915338
      driver-class-name: com.mysql.jdbc.Driver
      url: jdbc:mysql://127.0.0.1:3306/zoo
-     type: com.alibaba.druid.pool.DruidDataSource
+
+#     druid配置
+ #   type: com.alibaba.druid.pool.DruidDataSource
  #   数据源其他配置
      initialSize: 5
      minIdle: 5
@@ -32,6 +34,20 @@ spring:
      maxPoolPreparedStatementPerConnectionSize: 20
      useGlobalDataSourceStat: true
      connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+
+#     bonecp 配置
+     type: com.jolbox.bonecp.BoneCPDataSource
+     idleConnectionTestPeriodInMinutes: 240
+     idleMaxAgeInMinutes: 60
+     maxConnectionsPerPartition: 40
+     partitionCount: 3
+     acquireIncrement: 5
+     statementsCacheSize: 50
+     defaultAutoCommit: "true"
+     connectionTimeoutInMs: 30000
+
+
+
 
 
 #mybatis 缓存 别名
