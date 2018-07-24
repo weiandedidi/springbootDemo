@@ -7,9 +7,9 @@ import java.util.Map;
 
 public interface UserDao {
 
-	User insert(User user);
+	Integer insert(User user);
 	
-	User update(User user);
+	void update(User user);
 	
 	User getUserById(Integer id);
 
