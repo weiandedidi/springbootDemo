@@ -1,0 +1,6 @@
+#这两个需要配置在这里
+org.springframework.context.ApplicationContextInitializer=\
+com.qidi.bootdemo.web.listener.MyApplicationContextInitializer
+
+org.springframework.boot.SpringApplicationRunListener=\
+com.qidi.bootdemo.web.listener.MySpringApplicationRunListener

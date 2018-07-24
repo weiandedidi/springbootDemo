@@ -14,9 +14,9 @@ import javax.servlet.annotation.WebListener;
  * Time: 下午7:03
  */
 @WebListener
-public class MyListener implements ServletContextListener {
+public class MyServletListener implements ServletContextListener {
 
-    private Logger logger = LoggerFactory.getLogger(MyListener.class);
+    private Logger logger = LoggerFactory.getLogger(MyServletListener.class);
     @Override
     public void contextInitialized(ServletContextEvent servletContextEvent) {
         System.out.println("初始化的时候监听一下。。。");
