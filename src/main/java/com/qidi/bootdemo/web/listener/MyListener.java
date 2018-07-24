@@ -1,4 +1,4 @@
-package com.qidi.bootdemo.listener;
+package com.qidi.bootdemo.web.listener;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

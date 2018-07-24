@@ -1,6 +1,6 @@
 package com.qidi.bootdemo.config;
 
-import com.qidi.bootdemo.listener.MyHttpListener;
+import com.qidi.bootdemo.web.listener.MyHttpListener;
 import org.springframework.boot.web.servlet.ServletListenerRegistrationBean;
 
 /**

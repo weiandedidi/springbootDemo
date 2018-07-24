@@ -1,11 +1,9 @@
-package com.qidi.bootdemo.controller;
+package com.qidi.bootdemo.web.controller;
 
-import com.qidi.bootdemo.exception.MyException;
-import org.springframework.http.HttpRequest;
+import com.qidi.bootdemo.web.exception.MyException;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;

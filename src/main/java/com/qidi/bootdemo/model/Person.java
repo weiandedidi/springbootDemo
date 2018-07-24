@@ -10,17 +10,17 @@ import java.util.Map;
 /**
  * Created with IntelliJ IDEA.
  * 1. 使用ConfigurationProperties prefix是前缀便于查找
- * 2. 使用value注解 通过spel表达式获取${person.name} yaml文件也可以这么获取
+ * 2. 使用value注解 通过spel表达式获取${user.name} yaml文件也可以这么获取
  * User: qidi
  * Date: 2018/7/20
  * Time: 上午10:41
  */
-@ConfigurationProperties(prefix = "person" )
+@ConfigurationProperties(prefix = "user" )
 @Component
 //校验
 @Validated
 public class Person {
-//    @Value("${person.name}")
+//    @Value("${user.name}")
 
 //    @Email   邮箱校验
     private String name;

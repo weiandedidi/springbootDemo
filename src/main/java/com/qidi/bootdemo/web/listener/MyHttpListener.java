@@ -1,6 +1,5 @@
-package com.qidi.bootdemo.listener;
+package com.qidi.bootdemo.web.listener;
 
-import javax.servlet.annotation.WebListener;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 

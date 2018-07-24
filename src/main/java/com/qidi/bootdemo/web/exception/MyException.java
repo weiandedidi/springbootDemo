@@ -1,4 +1,4 @@
-package com.qidi.bootdemo.exception;
+package com.qidi.bootdemo.web.exception;
 
 /**
  * 自定义异常

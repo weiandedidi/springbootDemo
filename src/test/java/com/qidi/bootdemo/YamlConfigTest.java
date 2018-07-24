@@ -27,13 +27,13 @@ public class YamlConfigTest {
     public void testConfiguer() {
         //成功注入
         System.out.println(person.getName());
-//        System.out.println(person.getDepartmentNos());
-//        System.out.println(person.getAccountMap());
+//        System.out.println(user.getDepartmentNos());
+//        System.out.println(user.getAccountMap());
     }
 
     @Test
     public void testSpring() {
-        Person person = (Person) springUtils.getBean("person");
+        Person person = (Person) springUtils.getBean("user");
         System.out.println(person.getName());
     }
 }

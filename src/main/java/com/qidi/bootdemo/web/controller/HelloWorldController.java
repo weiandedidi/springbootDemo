@@ -1,4 +1,4 @@
-package com.qidi.bootdemo.controller;
+package com.qidi.bootdemo.web.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

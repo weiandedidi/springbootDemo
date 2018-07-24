@@ -1,7 +1,5 @@
-package com.qidi.bootdemo.filter;
+package com.qidi.bootdemo.web.filter;
 
-
-import org.springframework.stereotype.Component;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;

@@ -1,6 +1,6 @@
-package com.qidi.bootdemo.controller;
+package com.qidi.bootdemo.web.controller;
 
-import com.qidi.bootdemo.exception.MyException;
+import com.qidi.bootdemo.web.exception.MyException;
 import com.qidi.bootdemo.model.Person;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
