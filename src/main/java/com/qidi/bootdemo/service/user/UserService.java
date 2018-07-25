@@ -47,6 +47,12 @@ public class UserService {
         return userDao.getUserById(id);
     }
 
+    @Cacheable(value = "users", keyGenerator = "myKeyGenerator")
+    public User getUserByIdV2(Integer id) {
+
+        return userDao.getUserById(id);
+    }
+
     /**
      * 调用，更新缓存
      * 先调用方法，然后将结果缓存
