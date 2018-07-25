@@ -1,5 +1,6 @@
 package com.qidi.bootdemo.service.ansy;
 
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 /**
@@ -9,9 +10,10 @@ import org.springframework.stereotype.Service;
  * Time: 下午8:31
  */
 @Service
-@Aysnc
 public class AnsyService {
 
+    //异步调用注释
+    @Async
     public void sayHello(){
         try {
             Thread.sleep(3000);
