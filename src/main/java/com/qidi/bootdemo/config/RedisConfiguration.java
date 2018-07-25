@@ -1,5 +1,6 @@
 package com.qidi.bootdemo.config;
 
+import com.alibaba.fastjson.parser.ParserConfig;
 import com.alibaba.fastjson.support.spring.FastJsonRedisSerializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,6 +18,7 @@ import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.interceptor.KeyGenerator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.data.redis.cache.RedisCacheConfiguration;
 import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.cache.RedisCacheWriter;
@@ -63,8 +65,8 @@ import java.util.Arrays;
  * @CacheEvict 清空缓存
  * keyGenerator 生成器
  * <p>
- *
- * 不要使用fastjson作为序列化，因为没有"@class"属性，无法反序列化成javeBEAN
+ * <p>
+ * //不要使用fastjson作为序列化，因为没有"@class"属性，无法反序列化成javeBEAN
  */
 @EnableCaching
 @Configuration
@@ -76,24 +78,21 @@ public class RedisConfiguration {
 
     private Logger logger = LoggerFactory.getLogger(RedisConfiguration.class);
 
-    //此处配置的序列化是失败的，需要配置RedisCacheConfiguration 中keySerializationPair 和value
-    @Bean(name = "redisTemplate")
+    //redisTemplate已经没有用了此处配置的序列化是失败的，需要配置RedisCacheConfiguration 中keySerializationPair 和value
+    //如果使用cacheManager 那么序列化使用manager中的序列化
+/*    @Bean(name = "redisTemplate")
     @ConditionalOnMissingBean(name = "redisTemplate")
-    public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory redisConnectionFactory) {
+    public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory redisConnectionFactory, FastJsonRedisSerializer fastJsonRedisSerializer) {
         RedisTemplate<String, Object> template = new RedisTemplate<>();
 
-        //使用fastjson序列化
-        FastJsonRedisSerializer fastJsonRedisSerializer = new FastJsonRedisSerializer(Object.class);
-        // value值的序列化采用fastJsonRedisSerializer
-        template.setValueSerializer(valueSerializer());
-        template.setHashValueSerializer(valueSerializer());
-        // key的序列化采用StringRedisSerializer
+        template.setValueSerializer(fastJsonRedisSerializer);
         template.setKeySerializer(keySerializer());
         template.setHashKeySerializer(keySerializer());
         template.setConnectionFactory(redisConnectionFactory);
         logger.debug("自定义序列化模版");
         return template;
-    }
+    }*/
+
 
     //缓存管理器
 
@@ -105,8 +104,8 @@ public class RedisConfiguration {
      * @param redisConnectionFactory
      * @return
      */
-//    @Bean("myCacheManager")
     @Bean("myCacheManager")
+    @Primary    //默认的此manager注解
     public CacheManager cacheManager(RedisConnectionFactory redisConnectionFactory) {
         //方法一： 建造器构建 这里需要给出别的序列化方法
 //        RedisCacheManager.RedisCacheManagerBuilder builder = RedisCacheManager
