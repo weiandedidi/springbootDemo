@@ -1,19 +1,19 @@
 package com.qidi.bootdemo.model.user;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.io.Serializable;
-import java.util.Date;
 
 public class User implements Serializable {
 
 	/** id */
+//	@JsonIgnore
     private Integer id;
 	/** 用户名 */
     private String name;
 	/** 密码 */
     private String pwd;
-	/** 创建时间 */
-    private Date createtime;
-	
+
 	public Integer getId(){
 		return this.id;
 	}
@@ -37,14 +37,7 @@ public class User implements Serializable {
 	public void setPwd(String pwd){
 		this.pwd = pwd;
 	}
-	
-	public Date getCreatetime(){
-		return this.createtime;
+
+	public User() {
 	}
-	
-	public void setCreatetime(Date createtime){
-		this.createtime = createtime;
-	}
-	
-	
 }

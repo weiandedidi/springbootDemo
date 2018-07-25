@@ -6,7 +6,6 @@
 		<id property="id" column="id"/>
 		<result property="name" column="name"/>
 		<result property="pwd" column="pwd"/>
-		<result property="createtime" column="createtime"/>
 	</resultMap>
   
 	<insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="User">
@@ -15,14 +14,12 @@
         <if test="id != null">id,</if>
         <if test="name != null">name,</if>
         <if test="pwd != null">pwd,</if>
-        <if test="createtime != null">createtime,</if>
         </trim>
     	values
     	<trim prefix="(" suffixOverrides="," suffix=")">
         <if test="id != null">#{id},</if>
         <if test="name != null">#{name},</if>
         <if test="pwd != null">#{pwd},</if>
-        <if test="createtime != null">#{createtime},</if>
 		</trim>
 	</insert>
 
@@ -31,7 +28,6 @@
     	<set>
   			<if test="name != null">name=#{name},</if>
   			<if test="pwd != null">pwd=#{pwd},</if>
-  			<if test="createtime != null">createtime=#{createtime}</if>
 		</set>
 		where id=#{id}
 	</update>
@@ -59,7 +55,6 @@
 			<if test="id != null">id=#{id}</if>
 			<if test="name != null">and name=#{name}</if>
 			<if test="pwd != null">and pwd=#{pwd}</if>
-			<if test="createtime != null">and createtime=#{createtime}</if>
 		</where>
 	</sql>
    
