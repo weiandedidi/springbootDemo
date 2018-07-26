@@ -8,12 +8,16 @@ import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.ViewResolver;
 
 import java.util.Locale;
 
 
+/**
+ * springboot使用@EnableTransactionManagement 开启事务 并使用@Transactional 注释在相应方法上
+ */
 
 //servlet组件扫描
 @ServletComponentScan	//servlet组件扫描
@@ -21,6 +25,7 @@ import java.util.Locale;
 @MapperScan(value = "com.qidi.bootdemo.dao")	//mapper包注解扫描
 @EnableScheduling	//开启定时任务
 @EnableAsync	//开启异步调用
+@EnableTransactionManagement	//开启事务
 public class BootdemoApplication {
 
 	public static void main(String[] args) {

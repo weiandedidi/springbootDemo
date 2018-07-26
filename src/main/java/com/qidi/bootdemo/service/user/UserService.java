@@ -5,7 +5,9 @@ import com.qidi.bootdemo.dao.user.UserDao;
 import com.qidi.bootdemo.model.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.*;
+import org.springframework.data.annotation.Transient;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * user的service
@@ -66,10 +68,38 @@ public class UserService {
 
 //    @Caching(put = @CachePut(),cacheable = @Cacheable(),evict = @CacheEvict)
     @CachePut(value = "users", key = "#user.id")
+    @Transactional
     public User updateUser(User user) {
         System.out.println("员工更新方法调用");
         userDao.update(user);
         return user;
     }
+
+    /**
+     * 测试事务使用
+     * @param user
+     * @return
+     */
+    @Transactional
+    public User updateUserV2(User user) {
+        System.out.println("员工更新方法调用");
+        userDao.update(user);
+        throw new RuntimeException("自造一个错误 数据回滚。。。");
+    }
+
+    /**
+     * 测试事务的maneger
+     * 看使用哪个事务管理器
+     * @param user
+     * @return
+     */
+    @Transactional("transactionManager1")
+//    @Transactional("transactionManager2")
+    public User updateUserV3(User user) {
+        System.out.println("员工更新方法调用");
+        userDao.update(user);
+        throw new RuntimeException("自造一个错误 数据回滚。。。");
+    }
+
 
 }
