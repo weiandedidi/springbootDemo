@@ -3,6 +3,7 @@ package com.qidi.bootdemo.config;
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.support.http.StatViewServlet;
 import com.alibaba.druid.support.http.WebStatFilter;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
@@ -21,6 +22,7 @@ import java.util.Map;
  * Time: 下午12:45
  */
 @Configuration
+@MapperScan(value = "com.qidi.bootdemo.dao")	//mybatis的mapper包注解扫描
 public class  DruidConfig{
 
     @ConfigurationProperties(prefix = "spring.datasource")

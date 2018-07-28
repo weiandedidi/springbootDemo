@@ -17,12 +17,12 @@ import java.util.Locale;
 
 /**
  * springboot使用@EnableTransactionManagement 开启事务 并使用@Transactional 注释在相应方法上
+ *
  */
 
 //servlet组件扫描
 @ServletComponentScan	//servlet组件扫描
 @SpringBootApplication
-@MapperScan(value = "com.qidi.bootdemo.dao")	//mapper包注解扫描
 @EnableScheduling	//开启定时任务
 @EnableAsync	//开启异步调用
 @EnableTransactionManagement	//开启事务
