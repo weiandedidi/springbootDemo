@@ -3,6 +3,7 @@ package com.qidi.bootdemo.aop;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Pointcut;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -20,7 +21,11 @@ import java.util.Arrays;
 public class WebLogAspect {
     private Logger logger = LoggerFactory.getLogger(WebLogAspect.class);
 
-    @Around("execution(*com.qidi.bootdemo.service.user.UserService)")
+    @Pointcut("execution(* com.qidi.bootdemo.web.controller..*(..))")
+    public void pointCut(){}
+
+
+    @Around("pointCut()")
     public Object aroundInvoke(ProceedingJoinPoint point) throws Throwable {
         logger.info("around 执行参数是：" + Arrays.asList(point.getArgs()));
 
