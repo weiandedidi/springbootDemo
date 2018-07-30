@@ -1,5 +1,7 @@
 package com.qidi.bootdemo;
 
+import com.qidi.bootdemo.message.provider.KafkaSender;
+import com.qidi.bootdemo.utils.SpringUtils;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,31 +19,43 @@ import java.util.Locale;
 
 /**
  * springboot使用@EnableTransactionManagement 开启事务 并使用@Transactional 注释在相应方法上
- *
  */
 
 //servlet组件扫描
-@ServletComponentScan	//servlet组件扫描
+@ServletComponentScan    //servlet组件扫描
 @SpringBootApplication
-@EnableScheduling	//开启定时任务
-@EnableAsync	//开启异步调用
-@EnableTransactionManagement	//开启事务
+@EnableScheduling    //开启定时任务
+@EnableAsync    //开启异步调用
+@EnableTransactionManagement    //开启事务
 public class BootdemoApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(BootdemoApplication.class, args);
+    public static void main(String[] args) {
+        SpringApplication.run(BootdemoApplication.class, args);
 //		SpringApplicationBuilder()
-	}
 
-	@Bean
-	public ViewResolver myViewResoler(){
-		return new MyViewResoler();
-	}
-	private static class MyViewResoler implements ViewResolver{
+        //启动kafka 发送线程
+        KafkaSender sender = SpringUtils.getBean(KafkaSender.class);
+        for (int i = 0; i < 3; i++) {
+            //调用消息发送类中的消息发送方法
+            sender.send();
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
-		@Override
-		public View resolveViewName(String s, Locale locale) throws Exception {
-			return null;
-		}
-	}
+    @Bean
+    public ViewResolver myViewResoler() {
+        return new MyViewResoler();
+    }
+
+    private static class MyViewResoler implements ViewResolver {
+
+        @Override
+        public View resolveViewName(String s, Locale locale) throws Exception {
+            return null;
+        }
+    }
 }

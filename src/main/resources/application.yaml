@@ -46,11 +46,10 @@ spring:
      defaultAutoCommit: "true"
      connectionTimeoutInMs: 30000
 
-#redis 配置
+#cache的选择 redis simple 等
   cache:
     type: redis
-
-
+#redis 配置
   redis:
     database: 0
     host: 127.0.0.1
@@ -64,6 +63,38 @@ spring:
         max-active: 8
         min-idle: 0
     timeout: 5000
+
+# kafka 消息队列配置
+  kafka:
+    bootstrap-servers: 10.5.233.60:9092
+    # 生产者
+    producer:
+      retries: 0
+      # 编码方式
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      # 每次批量的消息数字
+      batch-size: 16384
+      buffer-memory: 33554432
+
+
+
+    consumer:
+      group-id: mygroup
+      auto-offset-reset: earliest     #从头消费
+      enable-auto-commit: true
+      auto-commit-interval: 100 #自动提交
+      #  ====== 解码方式 =========
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
+
+
+
+
+
+
+
 
 
 
