@@ -31,9 +31,9 @@ public class BootdemoApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(BootdemoApplication.class, args);
-//		SpringApplicationBuilder()
 
-        //启动kafka 发送线程
+/*
+        启动kafka 发送线程
         KafkaSender sender = SpringUtils.getBean(KafkaSender.class);
         for (int i = 0; i < 3; i++) {
             //调用消息发送类中的消息发送方法
@@ -44,6 +44,7 @@ public class BootdemoApplication {
                 e.printStackTrace();
             }
         }
+*/
     }
 
     @Bean
