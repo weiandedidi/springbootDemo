@@ -200,6 +200,9 @@
     <profiles>
         <profile>
             <id>test</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
             <properties>
                 <bootdemo.enviroment>test</bootdemo.enviroment>
                 <jdbc.url>jdbc:mysql://127.0.0.1:3306/zoo</jdbc.url>
