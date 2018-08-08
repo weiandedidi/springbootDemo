@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class MyTask {
 
-    @Scheduled(cron = "* * * * 8 *")
+//    @Scheduled(cron = "* * * * 8 *")
     public void sayHello() {
         System.out.println("我是 一个定时任务");
     }
