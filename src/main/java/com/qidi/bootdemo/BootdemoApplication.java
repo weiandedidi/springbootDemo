@@ -13,6 +13,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.ViewResolver;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.util.Locale;
 
@@ -27,6 +28,7 @@ import java.util.Locale;
 @EnableScheduling    //开启定时任务
 @EnableAsync    //开启异步调用
 @EnableTransactionManagement    //开启事务
+@EnableSwagger2 //开启swagger注解
 public class BootdemoApplication {
 
     public static void main(String[] args) {

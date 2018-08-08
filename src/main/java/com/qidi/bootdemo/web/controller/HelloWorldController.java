@@ -1,5 +1,6 @@
 package com.qidi.bootdemo.web.controller;
 
+import io.swagger.annotations.ApiOperation;
 import org.eclipse.jetty.client.HttpResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,6 +24,7 @@ import javax.servlet.http.HttpServletResponse;
 public class HelloWorldController {
     private Logger logger = LoggerFactory.getLogger(HelloWorldController.class);
 
+    @ApiOperation(value = "首页", notes = "获取首页")
     @RequestMapping("/hello")
     public String index() {
         logger.trace("这是trace");
