@@ -20,7 +20,7 @@ import java.util.Optional;
 public class KafkaConsumer {
 
     //接收就是一直接收
-    @KafkaListener(topics = {"maqidi"})
+//    @KafkaListener(topics = {"maqidi"})
     public void listen(ConsumerRecord<?, ?> record) {
         Optional<?> kafkaMessage = Optional.ofNullable(record.value());
         if (kafkaMessage.isPresent()) {
