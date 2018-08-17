@@ -36,15 +36,15 @@ spring:
      connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
 
 #     bonecp 配置
-     type: com.jolbox.bonecp.BoneCPDataSource
-     idleConnectionTestPeriodInMinutes: 240
-     idleMaxAgeInMinutes: 60
-     maxConnectionsPerPartition: 40
-     partitionCount: 3
-     acquireIncrement: 5
-     statementsCacheSize: 50
-     defaultAutoCommit: "true"
-     connectionTimeoutInMs: 30000
+#     type: com.jolbox.bonecp.BoneCPDataSource
+#     idleConnectionTestPeriodInMinutes: 240
+#     idleMaxAgeInMinutes: 60
+#     maxConnectionsPerPartition: 40
+#     partitionCount: 3
+#     acquireIncrement: 5
+#     statementsCacheSize: 50
+#     defaultAutoCommit: "true"
+#     connectionTimeoutInMs: 30000
 
 #cache的选择 redis simple 等
   cache:

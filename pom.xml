@@ -32,19 +32,12 @@
 
 
     <dependencies>
-        <!--yaml支持-->
-        <dependency>
-            <groupId>org.yaml</groupId>
-            <artifactId>snakeyaml</artifactId>
-            <version>${snakeyaml.version}</version>
-        </dependency>
         <!--配置文件提示-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
             <optional>true</optional>
         </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
@@ -126,28 +119,25 @@
             <version>1.1.10</version>
         </dependency>
 
-        <!--boncp 数据库-->
-        <dependency>
-            <groupId>com.jolbox</groupId>
-            <artifactId>bonecp</artifactId>
-            <version>${bonecp.version}</version>
-            <exclusions>
-                <!--<exclusion>-->
-                <!--<groupId>com.google.guava</groupId>-->
-                <!--<artifactId>guava</artifactId>-->
-                <!--</exclusion>-->
-                <exclusion>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>slf4j-api</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
+        <!--
+                boncp 数据库
+                <dependency>
+                    <groupId>com.jolbox</groupId>
+                    <artifactId>bonecp</artifactId>
+                    <version>${bonecp.version}</version>
+                    <exclusions>
+                        <exclusion>
+                        <groupId>com.google.guava</groupId>
+                        <artifactId>guava</artifactId>
+                        </exclusion>
+                        <exclusion>
+                            <groupId>org.slf4j</groupId>
+                            <artifactId>slf4j-api</artifactId>
+                        </exclusion>
+                    </exclusions>
+                </dependency>
+        -->
 
-        <!--        <dependency>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-devtools</artifactId>
-                    <scope>runtime</scope>
-                </dependency>-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -203,6 +193,19 @@
             <artifactId>spring-security-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <!--使用elasticsearch-->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.boot</groupId>-->
+            <!--<artifactId>spring-boot-starter-data-elasticsearch</artifactId>-->
+        <!--</dependency>-->
+
+        <!--使用jest连接elasticsearch-->
+         <!--https://mvnrepository.com/artifact/io.searchbox/jest-->
+        <!--<dependency>-->
+            <!--<groupId>io.searchbox</groupId>-->
+            <!--<artifactId>jest</artifactId>-->
+            <!--<version>5.3.4</version>-->
+        <!--</dependency>-->
 
     </dependencies>
 
