@@ -1,24 +1,19 @@
 package com.qidi.bootdemo.web.controller;
 
 import io.swagger.annotations.ApiOperation;
-import org.eclipse.jetty.client.HttpResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpRequest;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 
 /**
- * Created with IntelliJ IDEA.
+ * 热部署 cmd+F9 实现热部署。
  * User: qidi
  * Date: 2018/7/18
  * Time: 上午11:26
  */
+
 @RestController
 //@Slf4j
 public class HelloWorldController {

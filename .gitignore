@@ -31,3 +31,5 @@
 logs
 log
 /target
+log4j-demo/target/
+log4j2-demo/target/

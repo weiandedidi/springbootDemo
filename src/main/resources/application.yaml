@@ -101,7 +101,6 @@ spring:
 
 
 
-
 #mybatis 缓存 别名
 mybatis:
   type-aliases-package: com.qidi.bootdemo.model
@@ -121,6 +120,11 @@ person:
     name: market
     departNo: 101
 
+
+#监控默认暴露
+management:
+  endpoints:
+    enabled-by-default: true
 
 #   test
 ---
