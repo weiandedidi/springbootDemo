@@ -31,10 +31,18 @@ public class EmployeeServiceTest {
         Employee employee = new Employee();
         employee.setEmail("weiandedidi@163.com");
         employee.setGender(1L);
-        employee.setLastname("我是分表");
+        employee.setLastname("我是分表1");
         employee.setDId(5L);
         employeeService.insert(employee);
-        System.out.println("====== 插入成功 =========");
+        System.out.println("====== 插入1成功 =========");
+
+        Employee employeeV2 = new Employee();
+        employeeV2.setEmail("weiandedidi@163.com");
+        employeeV2.setGender(2L);
+        employeeV2.setLastname("我是分表2");
+        employeeV2.setDId(6L);
+        employeeService.insert(employeeV2);
+        System.out.println("====== 插入2成功 =========");
     }
 
     @Test
