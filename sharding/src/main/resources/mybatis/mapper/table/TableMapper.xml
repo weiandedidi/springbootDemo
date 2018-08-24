@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qidi.sharding.dao.table.TableDao">
+
+
+    <select id="existTable" parameterType="String" resultType="Integer">
+        select count(*)
+        from information_schema.TABLES
+        where LCASE(table_name)=#{tableName}
+    </select>
+
+    <update id="createNewTable" parameterType="String">
+      CREATE TABLE ${tableName} (
+      `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+      `lastName` varchar(100) DEFAULT NULL,
+      `gender` int(11) DEFAULT NULL,
+      `email` varchar(100) DEFAULT NULL,
+      `d_Id` int(11) DEFAULT NULL,
+      PRIMARY KEY (`id`)
+    ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+    </update>
+
+</mapper>

@@ -1,0 +1,58 @@
+spring:
+  http:
+    encoding:
+      charset: UTF-8
+  datasource:
+    #   数据源基本配置
+    username: qidi
+    password: maqidi4915338
+    driver-class-name: com.mysql.jdbc.Driver
+    url: "jdbc:mysql://127.0.0.1:3306/zoo??useSSL=false&useUnicode=true&autoReconnect=true&characterEncoding=UTF8&allowMultiQueries=true"
+
+
+
+
+    #     druid配置
+    #   type: com.alibaba.druid.pool.DruidDataSource
+    #   数据源其他配置
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    #   配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+    filters: stat,wall,log4j
+    maxPoolPreparedStatementPerConnectionSize: 20
+    useGlobalDataSourceStat: true
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+
+#     bonecp 配置
+#     type: com.jolbox.bonecp.BoneCPDataSource
+#     idleConnectionTestPeriodInMinutes: 240
+#     idleMaxAgeInMinutes: 60
+#     maxConnectionsPerPartition: 40
+#     partitionCount: 3
+#     acquireIncrement: 5
+#     statementsCacheSize: 50
+#     defaultAutoCommit: "true"
+#     connectionTimeoutInMs: 30000
+
+
+
+#mybatis 缓存 别名
+mybatis:
+  type-aliases-package: com.qidi.bootdemo.model
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/**/*.xml
+
+
+logging:
+  file: ./logs/shrad.log
+  level:
+    com.qidi.sharding.dao: debug

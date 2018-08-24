@@ -6,7 +6,10 @@
     <groupId>com.qidi</groupId>
     <artifactId>bootdemo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <modules>
+        <module>sharding</module>
+    </modules>
+    <packaging>pom</packaging>
 
     <name>bootdemo</name>
     <description>Demo project for Spring Boot</description>
@@ -28,6 +31,7 @@
         <!-- thymeleaf2   layout1-->
         <thymeleaf-layout-dialect.version>2.2.2</thymeleaf-layout-dialect.version>
         <bonecp.version>0.8.0.RELEASE</bonecp.version>
+        <sharding-jdbc.version>3.0.0.M2</sharding-jdbc.version>
     </properties>
 
 
@@ -218,6 +222,15 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+        <!--分库分表功能-->
+        <!-- 引入sharding-jdbc核心模块 -->
+        <!-- https://mvnrepository.com/artifact/io.shardingsphere/sharding-jdbc -->
+        <dependency>
+            <groupId>io.shardingsphere</groupId>
+            <artifactId>sharding-jdbc</artifactId>
+            <version>3.0.0.M2</version>
         </dependency>
 
     </dependencies>

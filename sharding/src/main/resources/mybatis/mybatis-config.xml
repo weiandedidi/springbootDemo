@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <!--方言-->
+    <properties>
+        <property name="dialect" value="mysql" />
+    </properties>
+
+    <settings>
+        <!-- changes from the defaults -->
+        <setting name="lazyLoadingEnabled" value="false" />
+        <setting name="cacheEnabled" value="false" />
+        <setting name="defaultStatementTimeout" value="60"/>
+        <setting name="multipleResultSetsEnabled" value="true"/>
+    </settings>
+
+
+    <!--分页插件和分表插件-->
+    <plugins>
+        <!--<plugin interceptor="com.github.pagehelper.PageHelper">-->
+            <!--<property name="dialect" value="mysql" />-->
+        <!--</plugin>-->
+        <plugin interceptor="com.google.code.shardbatis.plugin.ShardPlugin">
+            <property name="shardingConfig" value="mybatis/shard_config.xml"/>
+        </plugin>
+    </plugins>
+
+</configuration>
