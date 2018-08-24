@@ -224,15 +224,6 @@
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
 
-        <!--分库分表功能-->
-        <!-- 引入sharding-jdbc核心模块 -->
-        <!-- https://mvnrepository.com/artifact/io.shardingsphere/sharding-jdbc -->
-        <dependency>
-            <groupId>io.shardingsphere</groupId>
-            <artifactId>sharding-jdbc</artifactId>
-            <version>3.0.0.M2</version>
-        </dependency>
-
     </dependencies>
 
     <build>
