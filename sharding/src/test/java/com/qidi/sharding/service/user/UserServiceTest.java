@@ -27,6 +27,7 @@ public class UserServiceTest {
         User userOne = new User();
         userOne.setName("haha");
         userOne.setPwd("xxx");
+        userOne.setDGroup("DGroup");
         userService.addUser(userOne);
     }
 
@@ -48,5 +49,16 @@ public class UserServiceTest {
 
     @Test
     public void getUserList() {
+    }
+
+    @Test
+    public void testInsert() {
+        for (int i = 0; i < 25000; i++) {
+            User user = new User();
+            user.setName("haha" + i);
+            user.setPwd("xxx" + i);
+            user.setDGroup("DGroup" + i);
+            userService.addUser(user);
+        }
     }
 }

@@ -14,12 +14,14 @@
         <if test="id != null">id,</if>
         <if test="name != null">name,</if>
         <if test="pwd != null">pwd,</if>
+        <if test="DGroup != null">d_group,</if>
         </trim>
     	values
     	<trim prefix="(" suffixOverrides="," suffix=")">
         <if test="id != null">#{id},</if>
         <if test="name != null">#{name},</if>
         <if test="pwd != null">#{pwd},</if>
+        <if test="DGroup != null">#{DGroup},</if>
 		</trim>
 	</insert>
 
@@ -28,6 +30,7 @@
     	<set>
   			<if test="name != null">name=#{name},</if>
   			<if test="pwd != null">pwd=#{pwd}</if>
+  			<if test="DGroup != null">d_group=#{DGroup}</if>
 		</set>
 		where id=#{id}
 	</update>
@@ -55,6 +58,7 @@
 			<if test="id != null">id=#{id}</if>
 			<if test="name != null">and name=#{name}</if>
 			<if test="pwd != null">and pwd=#{pwd}</if>
+			<if test="DGroup != null">and d_group=#{DGroup}</if>
 		</where>
 	</sql>
    

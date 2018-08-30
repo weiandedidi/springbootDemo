@@ -11,6 +11,8 @@ public class User implements Serializable {
     private String name;
 	/** 密码 */
     private String pwd;
+
+	private String DGroup;
 	
 	public Integer getId(){
 		return this.id;
@@ -35,6 +37,12 @@ public class User implements Serializable {
 	public void setPwd(String pwd){
 		this.pwd = pwd;
 	}
-	
-	
+
+	public String getDGroup() {
+		return DGroup;
+	}
+
+	public void setDGroup(String DGroup) {
+		this.DGroup = DGroup;
+	}
 }
