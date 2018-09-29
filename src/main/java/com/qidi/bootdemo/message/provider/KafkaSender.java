@@ -3,6 +3,7 @@ package com.qidi.bootdemo.message.provider;
 import com.alibaba.fastjson.JSONObject;
 import com.qidi.bootdemo.message.beans.Message;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
@@ -18,8 +19,8 @@ import java.util.UUID;
  * Time: 上午11:50
  */
 @Component
-@Slf4j
 public class KafkaSender {
+    private static final Logger log = org.slf4j.LoggerFactory.getLogger(KafkaSender.class);
 
     @Autowired
     private KafkaTemplate<String, String> kafkaTemplate;

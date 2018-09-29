@@ -8,4 +8,4 @@
 <!ATTLIST strategy
 tableName CDATA #REQUIRED
 strategyClass CDATA #REQUIRED
->
+>k

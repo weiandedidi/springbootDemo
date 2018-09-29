@@ -9,47 +9,47 @@ spring:
     encoding:
       charset: UTF-8
   datasource:
- #   数据源基本配置
-     username: @jdbc.name@
-     password: @jdbc.password@
-     driver-class-name: com.mysql.jdbc.Driver
-     url: @jdbc.url@
+    #   数据源基本配置
+    username: @jdbc.name@
+    password: @jdbc.password@
+    driver-class-name: com.mysql.jdbc.Driver
+    url: @jdbc.url@
 
-#     druid配置
- #   type: com.alibaba.druid.pool.DruidDataSource
- #   数据源其他配置
-     initialSize: 5
-     minIdle: 5
-     maxActive: 20
-     maxWait: 60000
-     timeBetweenEvictionRunsMillis: 60000
-     minEvictableIdleTimeMillis: 300000
-     validationQuery: SELECT 1 FROM DUAL
-     testWhileIdle: true
-     testOnBorrow: false
-     testOnReturn: false
-     poolPreparedStatements: true
- #   配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
-     filters: stat,wall,log4j
-     maxPoolPreparedStatementPerConnectionSize: 20
-     useGlobalDataSourceStat: true
-     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+    #     druid配置
+    #   type: com.alibaba.druid.pool.DruidDataSource
+    #   数据源其他配置
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    #   配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+    filters: stat,wall,log4j
+    maxPoolPreparedStatementPerConnectionSize: 20
+    useGlobalDataSourceStat: true
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
 
-#     bonecp 配置
-#     type: com.jolbox.bonecp.BoneCPDataSource
-#     idleConnectionTestPeriodInMinutes: 240
-#     idleMaxAgeInMinutes: 60
-#     maxConnectionsPerPartition: 40
-#     partitionCount: 3
-#     acquireIncrement: 5
-#     statementsCacheSize: 50
-#     defaultAutoCommit: "true"
-#     connectionTimeoutInMs: 30000
+  #     bonecp 配置
+  #     type: com.jolbox.bonecp.BoneCPDataSource
+  #     idleConnectionTestPeriodInMinutes: 240
+  #     idleMaxAgeInMinutes: 60
+  #     maxConnectionsPerPartition: 40
+  #     partitionCount: 3
+  #     acquireIncrement: 5
+  #     statementsCacheSize: 50
+  #     defaultAutoCommit: "true"
+  #     connectionTimeoutInMs: 30000
 
-#cache的选择 redis simple 等
+  #cache的选择 redis simple 等
   cache:
     type: redis
-#redis 配置
+  #redis 配置
   redis:
     database: 0
     host: 127.0.0.1
@@ -64,7 +64,7 @@ spring:
         min-idle: 0
     timeout: 5000
 
-# kafka 消息队列配置
+  # kafka 消息队列配置
   kafka:
     bootstrap-servers: 10.5.233.60:9092
     # 生产者
@@ -87,6 +87,12 @@ spring:
       #  ====== 解码方式 =========
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+  # multipart 多文件上传配置
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 2MB
+      max-request-size: 10MB
 
 
 
@@ -113,10 +119,10 @@ person:
   name: 马启迪
   age: 18
   accountMap: {1: 100,2: 200}
-  departmentNos :
-    - 101
-    - 102
-  department :
+  departmentNos:
+  - 101
+  - 102
+  department:
     name: market
     departNo: 101
 
@@ -125,6 +131,7 @@ person:
 management:
   endpoints:
     enabled-by-default: true
+
 
 #   test
 ---

@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.qidi.bootdemo.message.beans.Message;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
+import org.slf4j.Logger;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
@@ -16,8 +17,8 @@ import java.util.Optional;
  * Time: 下午1:00
  */
 @Component
-@Slf4j
 public class KafkaConsumer {
+    private static final Logger log = org.slf4j.LoggerFactory.getLogger(KafkaConsumer.class);
 
     //接收就是一直接收
 //    @KafkaListener(topics = {"maqidi"})

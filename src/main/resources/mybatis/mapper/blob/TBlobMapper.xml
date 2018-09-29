@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qidi.bootdemo.dao.blob.TBlobDao" >
+
+	<resultMap id="tBlobResultMap" type="com.qidi.bootdemo.model.blob.TBlob">
+		<id property="id" column="id"/>
+		<result property="data" column="data"/>
+	</resultMap>
+  
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="com.qidi.bootdemo.model.blob.TBlob">
+		insert into t_blob
+		<trim prefix="(" suffixOverrides="," suffix=")">
+        <if test="id != null">id,</if>
+        <if test="data != null">data,</if>
+        </trim>
+    	values
+    	<trim prefix="(" suffixOverrides="," suffix=")">
+        <if test="id != null">#{id},</if>
+        <if test="data != null">#{data},</if>
+		</trim>
+	</insert>
+
+	<update id="update" parameterType="com.qidi.bootdemo.model.blob.TBlob">
+		update t_blob
+    	<set>
+  			<if test="data != null">data=#{data}</if>
+		</set>
+		where id=#{id}
+	</update>
+  
+	<select id="getTBlobById" parameterType="int" resultMap="tBlobResultMap">
+		select * from t_blob
+		where ID=#{id} 
+	</select>
+  
+	<select id="countTBlob" parameterType="map" resultType="int">
+		select count(*) from t_blob
+		<include refid="queryCondition"/>
+	</select>
+  
+	<select id="getTBlobList" parameterType="map" resultMap="tBlobResultMap">
+		select * from t_blob
+		<include refid="queryCondition"/>
+		<if test="start != null and limit != null">
+		limit #{start},#{limit}
+		</if>
+	</select>
+  
+	<sql id="queryCondition">
+		<where>
+			<if test="id != null">id=#{id}</if>
+			<if test="data != null">and data=#{data}</if>
+		</where>
+	</sql>
+   
+</mapper>
