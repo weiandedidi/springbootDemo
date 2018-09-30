@@ -21,15 +21,19 @@ import java.util.Locale;
 
 /**
  * springboot使用@EnableTransactionManagement 开启事务 并使用@Transactional 注释在相应方法上
+ *
+ * @SpringBootApplication(exclude = DataSourceAutoConfiguration.class) 使用exclude就需要手动显示声明配置数据库
+ * springboot2.0 默认使用的是HikariCP 连接池，是boncp的升级版
  */
 
 //servlet组件扫描
 @ServletComponentScan    //servlet组件扫描
-@SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
+@SpringBootApplication
 @EnableScheduling    //开启定时任务
 @EnableAsync    //开启异步调用
 @EnableTransactionManagement    //开启事务
 @EnableSwagger2 //开启swagger注解
+@MapperScan("com.qidi.bootdemo.dao")
 public class BootdemoApplication {
 
     public static void main(String[] args) {

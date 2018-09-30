@@ -6,11 +6,7 @@
     <groupId>com.qidi</groupId>
     <artifactId>bootdemo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <modules>
-        <module>sharding</module>
-        <module>mina-demo</module>
-    </modules>
-    <packaging>pom</packaging>
+    <packaging>jar</packaging>
 
     <name>bootdemo</name>
     <description>Demo project for Spring Boot</description>
@@ -116,14 +112,7 @@
             <version>5.1.46</version>
             <scope>runtime</scope>
         </dependency>
-
-        <!-- https://mvnrepository.com/artifact/com.alibaba/druid -->
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid</artifactId>
-            <version>1.1.10</version>
-        </dependency>
-
+        <!--默认HikariCP配置数据库-->
         <!--
                 boncp 数据库
                 <dependency>
@@ -200,16 +189,16 @@
         </dependency>
         <!--使用elasticsearch-->
         <!--<dependency>-->
-            <!--<groupId>org.springframework.boot</groupId>-->
-            <!--<artifactId>spring-boot-starter-data-elasticsearch</artifactId>-->
+        <!--<groupId>org.springframework.boot</groupId>-->
+        <!--<artifactId>spring-boot-starter-data-elasticsearch</artifactId>-->
         <!--</dependency>-->
 
         <!--使用jest连接elasticsearch-->
-         <!--https://mvnrepository.com/artifact/io.searchbox/jest-->
+        <!--https://mvnrepository.com/artifact/io.searchbox/jest-->
         <!--<dependency>-->
-            <!--<groupId>io.searchbox</groupId>-->
-            <!--<artifactId>jest</artifactId>-->
-            <!--<version>5.3.4</version>-->
+        <!--<groupId>io.searchbox</groupId>-->
+        <!--<artifactId>jest</artifactId>-->
+        <!--<version>5.3.4</version>-->
         <!--</dependency>-->
 
         <!--热部署-->
@@ -248,7 +237,7 @@
             </activation>
             <properties>
                 <bootdemo.enviroment>test</bootdemo.enviroment>
-                <jdbc.url>jdbc:mysql://127.0.0.1:3306/zoo</jdbc.url>
+                <jdbc.url>jdbc:mysql://127.0.0.1:3306/zoo?useSSL=false</jdbc.url>
                 <jdbc.name>qidi</jdbc.name>
                 <jdbc.password>maqidi4915338</jdbc.password>
             </properties>
@@ -257,7 +246,7 @@
             <id>dev</id>
             <properties>
                 <bootdemo.enviroment>dev</bootdemo.enviroment>
-                <jdbc.url>jdbc:mysql://127.0.0.1:3306/zoo</jdbc.url>
+                <jdbc.url>jdbc:mysql://127.0.0.1:3306/zoo?useSSL=false</jdbc.url>
                 <jdbc.name>qidi</jdbc.name>
                 <jdbc.password>maqidi4915338</jdbc.password>
             </properties>
@@ -266,7 +255,7 @@
             <id>prod</id>
             <properties>
                 <bootdemo.enviroment>prod</bootdemo.enviroment>
-                <jdbc.url>jdbc:mysql://127.0.0.1:3306/zoo</jdbc.url>
+                <jdbc.url>jdbc:mysql://127.0.0.1:3306/zoo?useSSL=false</jdbc.url>
                 <jdbc.name>qidi</jdbc.name>
                 <jdbc.password>maqidi4915338</jdbc.password>
             </properties>

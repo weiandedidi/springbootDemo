@@ -57,7 +57,7 @@ public class UserServiceTest {
         User user = new User();
         user.setName("丽丽");
         user.setPwd("54321");
-       User newUser =  userService.addUser(user);
+        User newUser = userService.addUser(user);
         System.out.println(newUser.getId());
 
     }
@@ -66,7 +66,7 @@ public class UserServiceTest {
     public void updateUser() {
         User user = userService.getUserById(3);
         user.setPwd("12345");
-        User newUser =  userService.updateUser(user);
+        User newUser = userService.updateUser(user);
         System.out.println(newUser.getPwd());
     }
 
@@ -74,7 +74,7 @@ public class UserServiceTest {
     public void testTransactional() {
         User user = userService.getUserById(3);
         user.setPwd("888888");
-        User newUser =  userService.updateUserV2(user);
+        User newUser = userService.updateUserV2(user);
         System.out.println(newUser.getPwd());
     }
 
@@ -82,8 +82,25 @@ public class UserServiceTest {
     public void testTransactionManager() {
         User user = userService.getUserById(3);
         user.setPwd("888888");
-        User newUser =  userService.updateUserV3(user);
+        User newUser = userService.updateUserV3(user);
         System.out.println(newUser.getPwd());
     }
 
+    @Test
+    public void saveUserInOneDataSource() {
+        User user = new User();
+        user.setName("插入数据库1");
+        user.setPwd("54321");
+        User newUser = userService.saveUserInOneDataSource(user);
+        System.out.println(newUser.getId());
+    }
+
+    @Test
+    public void saveUserInTowDataSource() {
+        User user = new User();
+        user.setName("插入数据库2");
+        user.setPwd("54321");
+        User newUser = userService.saveUserInTowDataSource(user);
+        System.out.println(newUser.getId());
+    }
 }

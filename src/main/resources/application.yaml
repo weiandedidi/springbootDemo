@@ -8,32 +8,21 @@ spring:
   http:
     encoding:
       charset: UTF-8
+
+    # 默认使用hikariCP连接池
   datasource:
     #   数据源基本配置
     username: @jdbc.name@
     password: @jdbc.password@
     driver-class-name: com.mysql.jdbc.Driver
     url: @jdbc.url@
+    hikari:
+      connection-timeout: 10000
+      maximum-pool-size: 50
+      minimum-idle: 100
+      idle-timeout: 50000
+      connection-test-query: select 1
 
-    #     druid配置
-    #   type: com.alibaba.druid.pool.DruidDataSource
-    #   数据源其他配置
-    initialSize: 5
-    minIdle: 5
-    maxActive: 20
-    maxWait: 60000
-    timeBetweenEvictionRunsMillis: 60000
-    minEvictableIdleTimeMillis: 300000
-    validationQuery: SELECT 1 FROM DUAL
-    testWhileIdle: true
-    testOnBorrow: false
-    testOnReturn: false
-    poolPreparedStatements: true
-    #   配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
-    filters: stat,wall,log4j
-    maxPoolPreparedStatementPerConnectionSize: 20
-    useGlobalDataSourceStat: true
-    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
 
   #     bonecp 配置
   #     type: com.jolbox.bonecp.BoneCPDataSource
@@ -87,6 +76,7 @@ spring:
       #  ====== 解码方式 =========
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
   # multipart 多文件上传配置
   servlet:
     multipart:
@@ -104,7 +94,26 @@ spring:
 
 
 
-
+## HikariCP 配置多数据源
+#hikari:
+#  primary:
+#    jdbc-url: "jdbc:mysql://localhost:3306/zoo?useSSL=false"
+#    username: "qidi"
+#    password: "maqidi4915338"
+#    connection-timeout: 10000
+#    maximum-pool-size: 50
+#    minimum-idle: 100
+#    idle-timeout: 50000
+#    connection-test-query: select 1
+#  second:
+#    jdbc-url: "jdbc:mysql://localhost:3306/zoo2?useSSL=false"
+#    username: "qidi"
+#    password: "maqidi4915338"
+#    connection-timeout: 10000
+#    maximum-pool-size: 50
+#    minimum-idle: 100
+#    idle-timeout: 50000
+#    connection-test-query: select 1
 
 
 #mybatis 缓存 别名

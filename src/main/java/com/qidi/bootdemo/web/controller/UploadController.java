@@ -1,10 +1,7 @@
 package com.qidi.bootdemo.web.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.HashMap;
@@ -16,7 +13,8 @@ import java.util.Map;
  * Date: 2018/9/29
  * Time: 下午5:42
  */
-@Controller("/file")
+@Controller
+@RequestMapping("/caface")
 public class UploadController {
     /**
      * 多文件上传form 表单形式提交
@@ -28,9 +26,11 @@ public class UploadController {
      * 2. name="faceImage"; filename="faceImage.jpg"
      *
      * @return
+     * @CrossOrigin可实现跨域
      */
     @RequestMapping(value = "/add", method = RequestMethod.POST, consumes = "multipart/form-data")
     @ResponseBody
+    @CrossOrigin
     public Map<String, Object> uploadFile(@RequestParam(name = "face") MultipartFile face, @RequestParam(name = "faceImage") MultipartFile faceImage) {
         System.out.println(face.getContentType());
         System.out.println(faceImage.getContentType());
@@ -38,5 +38,11 @@ public class UploadController {
         reslut.put("code", 0);
         reslut.put("msg", "success");
         return reslut;
+    }
+
+    @RequestMapping("/hi")
+    @ResponseBody
+    public String hi() {
+        return "success";
     }
 }

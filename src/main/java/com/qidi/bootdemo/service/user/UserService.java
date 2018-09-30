@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.*;
 import org.springframework.data.annotation.Transient;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
@@ -29,6 +30,30 @@ public class UserService {
 
 
     public User addUser(User user) {
+        userDao.insert(user);
+        return user;
+    }
+
+    /**
+     * 数据源一插入
+     *
+     * @param user
+     * @return
+     */
+//    @Transactional(value = "primaryTransactionManager")
+    public User saveUserInOneDataSource(User user) {
+        userDao.insert(user);
+        return user;
+    }
+
+    /**
+     * 数据源二插入
+     *
+     * @param user
+     * @return
+     */
+//    @Transactional(value = "secondTransactionManager")
+    public User saveUserInTowDataSource(User user) {
         userDao.insert(user);
         return user;
     }
@@ -77,6 +102,7 @@ public class UserService {
 
     /**
      * 测试事务使用
+     *
      * @param user
      * @return
      */
@@ -90,6 +116,7 @@ public class UserService {
     /**
      * 测试事务的maneger
      * 看使用哪个事务管理器
+     *
      * @param user
      * @return
      */
