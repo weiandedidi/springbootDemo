@@ -28,7 +28,6 @@
         <!-- thymeleaf2   layout1-->
         <thymeleaf-layout-dialect.version>2.2.2</thymeleaf-layout-dialect.version>
         <bonecp.version>0.8.0.RELEASE</bonecp.version>
-        <sharding-jdbc.version>3.0.0.M2</sharding-jdbc.version>
     </properties>
 
 
@@ -61,7 +60,7 @@
             <artifactId>spring-boot-starter-jetty</artifactId>
             <scope>provided</scope>
         </dependency>
-
+        <!--测试框架-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>

@@ -1,13 +1,12 @@
 package com.qidi.bootdemo.service.user;
 
-import com.alibaba.fastjson.JSONObject;
 import com.qidi.bootdemo.dao.user.UserDao;
 import com.qidi.bootdemo.model.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.*;
-import org.springframework.data.annotation.Transient;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
 /**

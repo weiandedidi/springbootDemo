@@ -55,7 +55,7 @@ public class UserServiceTest {
     @Test
     public void addUser() {
         User user = new User();
-        user.setName("丽丽");
+        user.setName("丽丽sss");
         user.setPwd("54321");
         User newUser = userService.addUser(user);
         System.out.println(newUser.getId());
