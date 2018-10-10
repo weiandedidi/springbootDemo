@@ -34,29 +34,6 @@ public class UserService {
         return user;
     }
 
-    /**
-     * 数据源一插入
-     *
-     * @param user
-     * @return
-     */
-//    @Transactional(value = "primaryTransactionManager")
-    public User saveUserInOneDataSource(User user) {
-        userDao.insert(user);
-        return user;
-    }
-
-    /**
-     * 数据源二插入
-     *
-     * @param user
-     * @return
-     */
-//    @Transactional(value = "secondTransactionManager")
-    public User saveUserInTowDataSource(User user) {
-        userDao.insert(user);
-        return user;
-    }
 
     /**
      * 通过获取用户

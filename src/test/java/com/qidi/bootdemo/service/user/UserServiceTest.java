@@ -85,22 +85,4 @@ public class UserServiceTest {
         User newUser = userService.updateUserV3(user);
         System.out.println(newUser.getPwd());
     }
-
-    @Test
-    public void saveUserInOneDataSource() {
-        User user = new User();
-        user.setName("插入数据库1");
-        user.setPwd("54321");
-        User newUser = userService.saveUserInOneDataSource(user);
-        System.out.println(newUser.getId());
-    }
-
-    @Test
-    public void saveUserInTowDataSource() {
-        User user = new User();
-        user.setName("插入数据库2");
-        user.setPwd("54321");
-        User newUser = userService.saveUserInTowDataSource(user);
-        System.out.println(newUser.getId());
-    }
 }
