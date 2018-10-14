@@ -4,7 +4,12 @@ import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.HashMap;
+import java.util.Map;
 
 
 /**
@@ -28,5 +33,15 @@ public class HelloWorldController {
         logger.warn("这是警告");
         logger.error("这是error");
         return "Hello World";
+    }
+
+    @ResponseBody
+    @RequestMapping("/hi")
+    public Map<String, Object> hi(@RequestParam("message") String message) {
+        System.out.println(message);
+        Map<String, Object> map = new HashMap<>();
+        map.put("code", 0);
+        map.put("msg", "success");
+        return map;
     }
 }
